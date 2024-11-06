@@ -1,0 +1,13 @@
+{% for product in products %}
+    <div class="card" style="width: 18rem; margin: 10px">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Name: {{ product.name }}</h5>
+            <p class="card-text">Price: ${{ product.price }}</p>
+            <p class="card-text">Categories: <span
+                    class="badge text-bg-secondary">{{ product.category.all|join:", " }}</span></p>
+            <p class="card-text">{{ product.description|truncatewords:20 }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+{% endfor %}

@@ -51,8 +51,15 @@ def index(request):
     # suppliers = Supplier.objects.filter(product__name__icontains='G255').first()
     # print(suppliers)
 
-    supplier = Supplier.objects.select_related('product').all()
-    print(supplier)
+    # supplier = Supplier.objects.select_related('product').all()
+    # print(supplier)
+
+    products = Product.objects.prefetch_related('category').all()
+    # print(products)
+    for product in products:
+        for category in product.category.all():
+            print(f'{product.name} - {category.name}')
+
 
     return HttpResponse('<h1>Hello From Views.py</h1>')
 
