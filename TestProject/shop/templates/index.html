@@ -3,10 +3,17 @@
 {% block title %} Main Page {% endblock %}
 
 {% block content %}
-
+    <a class="btn btn-primary" href="{% url 'shop:add_product' %}">Add New Product</a>
     <div class="container mt-5">
+
+
         <div class="row">
-            {% include 'products.html' %}
+            <div class="col">
+                {% include 'category_filter.html' %}
+            </div>
+            <div class="row">
+                {% include 'products.html' %}
+            </div>
         </div>
     </div>
 {% endblock %}

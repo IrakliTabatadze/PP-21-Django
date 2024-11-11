@@ -1,0 +1,13 @@
+<form method="get">
+    {% for category_type, category_by_type in categories_by_type.items %}
+
+        <h3>{{ category_type }}</h3>
+        {% for category in category_by_type %}
+            <input class="form-check-input" type="checkbox" name="category" value="{{ category.id }}">
+            <label>{{ category.name }}</label>
+        {% endfor %}
+
+    {% endfor %}
+
+<button type="submit" class="btn btn-primary">Filter</button>
+</form>
