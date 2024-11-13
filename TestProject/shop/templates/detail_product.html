@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <!-- Product Details Section -->
+    <div class="row">
+        <div class="col-md-6">
+            <!-- Product Image -->
+            <div class="product-image">
+                {% if product.image %}
+                <img src="{{ product.image.url }}" class="img-fluid rounded shadow-sm" alt="{{ product.name }}">
+                {% else %}
+                <img src="" class="img-fluid rounded shadow-sm" alt="No image available">
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <!-- Product Info -->
+            <h1 class="product-name">{{ product.name }}</h1>
+            <h4 class="text-muted">Price: ${{ product.price }}</h4>
+
+            <p class="product-stock text-success">
+                {% if product.stock > 0 %}
+                    In stock ({{ product.stock }} available)
+                {% else %}
+                    <span class="text-danger">Out of stock</span>
+                {% endif %}
+            </p>
+
+            <!-- Product Description -->
+            <p class="mt-4">{{ product.description }}</p>
+
+            <!-- Categories -->
+            <p><strong>Categories:</strong> {{ product.category.all|join:", " }}</p>
+
+            <!-- Add to Cart Button -->
+            <div class="d-grid gap-2 mt-4">
+                <a class="btn btn-lg btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Related Products Section -->
+    {% if related_products %}
+    <div class="related-products mt-5">
+        <h3>Related Products</h3>
+        <div class="row">
+            {% for related_product in related_products %}
+            <div class="col-md-3">
+                <div class="card mb-4">
+                    {% if related_product.image %}
+                    <img src="{{ related_product.image.url }}" class="card-img-top" alt="{{ related_product.name }}">
+                    {% else %}
+                    <img src="" class="card-img-top" alt="No image available">
+                    {% endif %}
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ related_product.name }}</h5>
+                        <p class="card-text">${{ related_product.price }}</p>
+                        <a href="{% url 'shop:detail_product' related_product.id %}" class="btn btn-outline-primary btn-sm">View Details</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
