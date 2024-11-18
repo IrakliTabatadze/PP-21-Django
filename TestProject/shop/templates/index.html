@@ -3,7 +3,11 @@
 {% block title %} Main Page {% endblock %}
 
 {% block content %}
-    <a class="btn btn-primary" href="{% url 'shop:add_product' %}">Add New Product</a>
+
+    {% if perms.shop.add_product %}
+        <a class="btn btn-primary" href="{% url 'shop:add_product' %}">Add New Product</a>
+    {% endif %}
+
     <div class="container mt-5">
 
         {% include 'paginator.html' %}
