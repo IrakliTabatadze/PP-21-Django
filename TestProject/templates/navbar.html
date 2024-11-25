@@ -27,7 +27,7 @@
               {% else %}
                   <li><a class="dropdown-item" href="/users/login/">Login</a></li>
               {% endif %}
-            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="{% url 'orders:cart_view' %}">My Cart</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
