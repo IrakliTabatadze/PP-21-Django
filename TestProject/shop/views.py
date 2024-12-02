@@ -5,7 +5,9 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView, DetailView, FormView
 from django.urls import reverse_lazy
+import logging
 
+logger = logging.getLogger(__name__)
 
 def index(request):
     product_name = request.GET.get('product_name')
@@ -20,15 +22,19 @@ def index(request):
     else:
         products = Product.objects.all()
 
+
     paginator = Paginator(products, 8)
 
     try:
         page_number = request.GET.get('page')
+        logger.info(f'page: {page_number}')
         products = paginator.page(page_number)
     except PageNotAnInteger:
         products = paginator.page(1)
+        logger.error('User tried to open not integer page')
     except EmptyPage:
         products = paginator.page(paginator.num_pages)
+        logger.error(f'Page Not Found, Redirecting to {paginator.num_pages}')
 
     categories = Category.objects.all()
     category_by_type = {}
@@ -113,7 +119,7 @@ class ProductDetailView(DetailView):
 def add_product(request):
     if request.user.has_perm('shop.add_product'):
         if request.method == 'POST':
-            form = ProductForm(request.POST)
+            form = ProductForm(request.POST, request.FILES)
             if form.is_valid():
                 product = form.save(commit=False)
                 product.save()

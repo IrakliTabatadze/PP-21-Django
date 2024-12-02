@@ -16,6 +16,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     category = models.ManyToManyField(Category)
+    picture = models.ImageField(upload_to='products/', default=None, null=True, blank=True)
 
     def __str__(self):
         return self.name

@@ -1,0 +1,49 @@
+ERROR 2024-12-02 17:06:21,283 views User tried to open not integer page
+ERROR 2024-12-02 17:10:38,439 views User tried to open not integer page
+ERROR 2024-12-02 17:11:06,549 views User tried to open not integer page
+ERROR 2024-12-02 17:11:14,732 views Page Not Found, Redirecting to 3
+ERROR 2024-12-02 17:11:18,980 views Page Not Found, Redirecting to 3
+ERROR 2024-12-02 17:16:00,157 views Page Not Found, Redirecting to 3
+ERROR 2024-12-02 17:16:10,578 views User tried to open not integer page
+ERROR 2024-12-02 17:16:58,235 views page: 2
+CRITICAL 2024-12-02 17:17:12,832 views page: 2
+INFO 2024-12-02 17:19:36,193 views page: asfasf
+INFO 2024-12-02 17:19:36,202 views User tried to open not integer page
+INFO 2024-12-02 17:19:45,576 views page: asfasf
+INFO 2024-12-02 17:19:45,586 views User tried to open not integer page
+INFO 2024-12-02 17:19:56,525 views page: asfasf
+ERROR 2024-12-02 17:19:56,534 views User tried to open not integer page
+INFO 2024-12-02 17:20:03,246 views page: 2
+INFO 2024-12-02 17:20:34,296 views page: 2
+[INFO] [2024-12-02 17:22:02,577] [views] [page: 2]
+[INFO] [2024-12-02 21:25:26,836] [views] [page: 2]
+[INFO] [2024-12-02 21:41:14,579] [views] [page: 2]
+[INFO] [2024-12-02 21:41:27,801] [views] [page: None]
+[ERROR] [2024-12-02 21:41:27,810] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:42:02,540] [views] [page: None]
+[ERROR] [2024-12-02 21:42:02,551] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:43:19,971] [views] [page: None]
+[ERROR] [2024-12-02 21:43:19,980] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:43:24,008] [views] [page: 3]
+[INFO] [2024-12-02 21:44:04,504] [views] [page: 3]
+[INFO] [2024-12-02 21:44:25,528] [views] [page: None]
+[ERROR] [2024-12-02 21:44:25,538] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:46:58,831] [views] [page: None]
+[ERROR] [2024-12-02 21:46:58,843] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:47:16,706] [views] [page: None]
+[ERROR] [2024-12-02 21:47:16,715] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:48:02,393] [views] [page: None]
+[ERROR] [2024-12-02 21:48:02,406] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:48:22,347] [views] [page: None]
+[ERROR] [2024-12-02 21:48:22,356] [views] [User tried to open not integer page]
+[INFO] [2024-12-02 21:49:15,359] [views] [page: 3]
+[INFO] [2024-12-02 21:50:36,417] [views] [page: 3]
+[INFO] [2024-12-02 21:51:27,591] [views] [page: 3]
+[INFO] [2024-12-02 21:51:28,391] [views] [page: 3]
+[INFO] [2024-12-02 21:51:31,662] [views] [page: 2]
+[INFO] [2024-12-02 21:52:11,457] [views] [page: 2]
+[INFO] [2024-12-02 21:52:15,221] [views] [page: 3]
+[INFO] [2024-12-02 21:52:21,191] [views] [page: 2]
+[INFO] [2024-12-02 21:52:24,339] [views] [page: 1]
+[INFO] [2024-12-02 21:52:29,722] [views] [page: 3]
+[INFO] [2024-12-02 21:52:44,951] [views] [page: 1]
