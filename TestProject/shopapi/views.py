@@ -5,6 +5,10 @@ from rest_framework import status
 from rest_framework.pagination import PageNumberPagination
 from shop.models import Product, Category
 from .serializers import ProductSerializer, CategorySerializer
+from drf_yasg.utils import swagger_auto_schema
+from drf_yasg import openapi
+from rest_framework.permissions import IsAuthenticated
+from .permissions import SimplePermission
 
 
 @api_view(['GET'])
@@ -84,10 +88,38 @@ class ProductsView(APIView):
 
 
 class AddProductView(APIView):
-    @staticmethod
-    def post(request):
+
+    # permission_classes = [IsAuthenticated]
+    permission_classes = [SimplePermission]
+
+    @swagger_auto_schema(
+        operation_summary='Add new product',
+        operation_description='This endpoint adds new product to the database',
+        request_body=openapi.Schema(
+            type=openapi.TYPE_OBJECT,
+            properties={
+                'name': openapi.Schema(type=openapi.TYPE_STRING, description='name of product'),
+                'price': openapi.Schema(type=openapi.TYPE_NUMBER, description='Price of Product'),
+                'description': openapi.Schema(type=openapi.TYPE_STRING, description='Description of Product')
+            }
+        ),
+        responses={
+            201: openapi.Response(
+                description='Successfully added product',
+                examples={'message': 'Product added successfully'}
+            ),
+            400: openapi.Response(
+                description='Wrong request body'
+            )
+        }
+    )
+    def post(self, request):
         serializer = ProductSerializer(data=request.data)
         if serializer.is_valid():
             product = serializer.save()
             return Response({'message': 'Product added successfully'}, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+# JWT - JSON Web Token

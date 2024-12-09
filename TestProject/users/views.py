@@ -4,6 +4,9 @@ from django.contrib.auth import logout, login
 from django.views.generic import FormView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
+from rest_framework_simplejwt.views import TokenObtainPairView
+from .serializers import CustomTokenObtainPairSerializer
+
 
 def register_user(request):
     if request.method == 'POST':
@@ -35,6 +38,7 @@ class RegistrationView(FormView):
     def form_invalid(self, form):
         return self.render_to_response(self.get_context_data(form=form))
 
+
 def logout_user(request):
     logout(request)
 
@@ -51,3 +55,7 @@ class LogoutView(FormView):
 
 class LoginUserView(LoginView):
     template_name = 'registration/login.html'
+
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    serializer_class = CustomTokenObtainPairSerializer
